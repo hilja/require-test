@@ -1,0 +1,67 @@
+//--------------------------------------//
+// Typo utilities
+//--------------------------------------//
+
+// Font faces
+.font-sans-serif,
+%sans-serif {
+    font-family: f(sans-serif);
+}
+
+// Font sizes
+small,
+.font-small,
+%font-small {
+    font-size: 85%;
+}
+
+.font-medium,
+%font-medium {
+    font-size: 90%;
+}
+
+.font-large
+%font-large {
+    font-size: 125%;
+}
+
+// Font colors
+.color-black
+%color-black {
+    color: c(black, 1);
+}
+
+.color-red,
+%color-red
+.highlight,
+%highlight {
+    color: c(red);
+}
+
+.color-gray
+%color-gray {
+    color: c(gray, 1);
+}
+
+.color-gray-light,
+%color-gray-light,
+.dehighlight,
+%dehighlight {
+    color: c(gray, 1)-light;
+}
+
+// Weights and stylizing
+.strong,
+%strong {
+    font-weight: bold;
+}
+
+.uppercase,
+%uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize,
+%capitalize {
+    text-transform: capitalize;
+}

@@ -1,0 +1,22 @@
+//--------------------------------------//
+// Custom fonts
+//--------------------------------------//
+// @include scut-font-face("Museo100", "../fonts/museo/exljbris_-_museosans-100-webfont");
+// @include scut-font-face("Museo300", "../fonts/museo/exljbris_-_museosans-300-webfont", bold);
+
+//--------------------------------------//
+// Paragraphs
+//--------------------------------------//
+p {
+    @include font-size(16px);
+}
+
+//--------------------------------------//
+// Stylizing
+//--------------------------------------//
+i,
+q,
+em,
+blockquote {
+    font-style: italic;
+}

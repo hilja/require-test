@@ -1,0 +1,143 @@
+//--------------------------------------//
+// Constant getter functions
+//--------------------------------------//
+@function c($color, $value: 0) {
+    @return map-get(map-get($colors, $color), $value);
+}
+
+@function m($measure) {
+    @return map-get($measurements, $measure);
+}
+
+@function f($font) {
+    @return map-get($fonts, $font);
+}
+
+//--------------------------------------//
+// The z-index mixin to help to organize
+// z-indexes.
+//--------------------------------------//
+$z-layers: (
+    "cog":           50,
+    "overlay":       40,
+    "toc":           30,
+    "iframe-loader": 25,
+    "tooltip":       20
+) !default;
+
+@function z($layer) {
+    // @if not map-has-key($z-layers, $layer) {
+    //     @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+    // }
+    @return map-get($z-layers, $layer);
+}
+
+//--------------------------------------//
+// Media queries
+//--------------------------------------//
+$breakpoints: (
+    "s":   (min-width, 48em),
+    "m":   (min-width, 50em),
+    "l":   (min-width, 64em),
+    "xl":  (min-width, 90em),
+    "xxl": (min-width, 105em)
+) !default;
+
+// Make the breakpoints
+@mixin bp($breakpoint) {
+    $query: map-get($breakpoints, $breakpoint);
+
+    @if $query != null {
+        @media (#{nth($query, 1)}: #{nth($query, 2)}) {
+            @content;
+        }
+    } @else {
+        @warn "Unfortunately, no value could be retrieved from #{$breakpoint}. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+    }
+}
+
+//--------------------------------------//
+// This jugs the mq name into a pseudo
+// element in the body, then we can read
+// that with JavaScript, neat.
+//--------------------------------------//
+
+// Here's the sauce, this jugs the BPs name (key) into an `:after` and the
+// value to `:before` pseudo elements. Now, we can read that with JavaScript.
+@mixin bp2js($default) {
+
+    // One of the BPs has to be the default, meaning that it's on when
+    // there's no BP affecting. In the min breakpoint mobile first approach,
+    // the default would be the smallest BP.
+    &:before {
+        $foo: map-get($breakpoints, $default);
+        display: none;
+    }
+
+    &:after {
+        content: '#{$default}';
+        display: none;
+    }
+
+    @each $point, $dim in $breakpoints {
+        @if $default != $point {
+            @include bp(#{$point}) {
+                &:after {
+                    content: '#{$point}';
+                }
+
+                &:before {
+                    content: '#{nth($dim, 2)}';
+                }
+            }
+        }
+    }
+
+    @content;
+}
+
+//--------------------------------------//
+// Input placeholder value mixin.
+// Correct me if I'm wrong, but
+// autoprefixer won't prefix these?
+//--------------------------------------//
+@mixin input-placeholder {
+    &:placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+// Em conversion
+@function calculate-em($size) {
+    $rem-size: $size / 16px;
+    @return #{$rem-size}em;
+}
+
+// Rem conversion
+@function calculate-rem($size) {
+    $rem-size: $size / 16px;
+    @return #{$rem-size}rem;
+}
+
+// Font size mixin
+@mixin font-size($size) {
+    font-size: $size; // Fallback in px
+    font-size: calculate-rem($size);
+}

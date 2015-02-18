@@ -1,0 +1,24 @@
+//--------------------------------------//
+// Reset some of the boilerplate and
+// Normalize values so that it is easy to
+// keep them up to date.
+//--------------------------------------//
+html {
+    font-size: 100%;
+    line-height: 1.6;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: f(sans-serif);
+}
+
+body {
+    @include font-size(14px);
+    @include bp2js(s);
+    line-height: 1.2;
+    margin: m(half);
+}

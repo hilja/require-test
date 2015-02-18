@@ -1,0 +1,16 @@
+table {
+    margin-bottom: m(half);
+    
+    td,
+    th,
+    tr {
+        border-color: c(white);
+        border-style: solid;
+        border-width: 1px;
+        padding: $omni / 3;
+    }
+    
+    th {
+        background: rgba(c(white), .4);
+    }
+}

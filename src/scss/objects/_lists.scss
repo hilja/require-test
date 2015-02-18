@@ -1,0 +1,89 @@
+//--------------------------------------//
+// Lists
+// TODO: this file is a bit complex and
+//       things go pretty deep, it would
+//       need a bit love.
+//--------------------------------------//
+.ls-none {
+    list-style: none;
+}
+
+.large-bullets {
+    > li {
+        margin: 0 0 5px;
+        position: relative;
+
+        &:before {
+            @include font-size(27px);
+            content: '•';
+            display: block;
+            font-style: normal;
+            left: -19px;
+            line-height: .8;
+            position: absolute;
+            top: 0;
+        }
+
+        ul,
+        ol {
+            font-family: f(sans-serif);
+            margin-bottom: 0;
+            margin-top: 4px;
+            position: relative;
+
+            li:before {
+                @include font-size(22px);
+                content: '•';
+                left: -14px;
+                line-height: 1.2;
+                position: absolute;
+                top: 0;
+            }
+        }
+    }
+}
+
+//--------------------------------------//
+// Non reusable list stuff
+//--------------------------------------//
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    counter-reset: li; // Initiate a counter
+    margin: 0 0 10px 70px;
+
+    > li {
+        margin-bottom: 20px;
+        position: relative;
+
+        &:before {
+            @include scut-circle(48px, rgba(c(white), .8));
+            color: c(black);
+            content: counter(li);  // Use the counter as content
+            counter-increment: li; // Increment the counter by 1
+            font-family: f(sans-serif);
+            font-weight: bold;
+            left: -70px;
+            position: absolute;
+            text-align: center;
+            top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        ul,
+        ol {
+            @include font-size(13px);
+            font-family: f(sans-serif);
+            margin-bottom: 0;
+            margin-top: 4px;
+        }
+    }
+}

@@ -1,0 +1,65 @@
+//--------------------------------------//
+// The constants
+// The getter functions for these are
+// defined in ./_mixins.scss
+//--------------------------------------//
+
+// Access: c($color, $value: 0)
+$colors: (
+    black: (
+        0: #000,
+        1: #333
+    ),
+    gray: (
+        0: #666,
+        1: #999,
+        2: #aaa,
+        3: #ddd,
+        4: #eee
+    ),
+    white: (
+        0: #fff
+    ),
+    green: (
+        0: #2fc7c7,
+        1: #3fc,
+        2: #9ff
+    ),
+    red: (
+        0: red,
+        1: #ffd2d6
+    ),
+    yellow: (
+        0: #ff0,
+        1: LightYello
+    ),
+    blue: (
+        0: #2693ff,
+        1: #b3d4fc
+    )
+);
+
+// Access: m($measure)
+$omni: 40px;
+$measurements: (
+    full: $omni,
+    half: ($omni / 2),
+    third: ($omni / 3),
+    fourth: ($omni / 4),
+    p-width: 650px,
+    page-width: 800px
+);
+
+// Access: d($durations)
+$durations: (
+    short: 300ms,
+    medium: 600ms,
+    long: 1000ms
+);
+
+// Access: f($font)
+$fonts: (
+    monospace: "Monaco, 'Andale Mono', 'Courier New', 'Courier', monospace",
+    sans-serif: sans-serif,
+    serif: "Georgia, Times, 'Times New Roman', serif"
+);

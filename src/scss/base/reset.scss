@@ -1,0 +1,48 @@
+// Buttons
+@include scut-reset-button;
+
+// Uniform box sizing
+@include scut-reset-border-box;
+
+// More stylish focus
+*:focus {
+    filter: drop-shadow(0 0 4px c(blue, 0));
+    outline: 0;
+}
+
+// Remove empty p elements, they often fuck up carefully crafted vertical
+// rhythm in in blog posts
+p:empty {
+    display: none;
+}
+
+
+//--------------------------------------//
+// Universal single directional margins
+//--------------------------------------//
+blockquote,
+dd,
+div,
+fieldset,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.header,
+hgroup,
+hr,
+ol,
+p,
+pre,
+table,
+ul {
+    margin: 0 0 m(half);
+}
+
+// Override the universal margins if needed
+// iframe {
+//     margin-bottom: 0;
+// }

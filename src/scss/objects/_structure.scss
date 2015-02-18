@@ -1,0 +1,31 @@
+//--------------------------------------//
+// Header
+//--------------------------------------//
+.header {
+    @extend %centered;
+    background: c(white);
+    border-bottom: m(half) solid c(black, 1);
+}
+
+.sticky {
+    &.header {
+        left: calc(50% - (#{m(page-width)} / 2));
+        width: m(page-width);
+        position: fixed;
+        top: 0;
+    }
+}
+
+//--------------------------------------//
+// Containers
+//--------------------------------------//
+.container {
+    @extend %centered;
+}
+
+//--------------------------------------//
+// Footers
+//--------------------------------------//
+.footer {
+    @extend %centered;
+}
