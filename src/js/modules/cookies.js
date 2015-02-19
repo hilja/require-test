@@ -1,7 +1,7 @@
 /**
  * Chooookies
  */
-define(function(cookies) {
+define(function() {
     return {
         createCookie: function(name, value, days) {
             var expires;

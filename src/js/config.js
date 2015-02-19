@@ -1,21 +1,7 @@
-// Paths
-var path = {
-    lib: '../lib/',
-    js: '.',
-    mod: 'modules/'
-}
-
 require.config({
+    baseUrl: 'js',
     deps: ['modules/app'],
-    //deps: [path.js + 'global'],
     paths: {
-        jquery: path.lib + 'jquery',
-        prism: path.lib + 'prism'
+        jquery: '../lib/jquery'
     }
-    // Shims if needed
-    // shim: {
-    //     prism: {
-    //         exports: 'Prism'
-    //     }
-    // }
 });

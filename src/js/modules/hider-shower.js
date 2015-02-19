@@ -1,21 +1,37 @@
-/**
- * Show a hidden element, also and hide it when clicking out of it
- * @param  {string} trigger The button to show the element
- * @param  {string} el      The element to toggle
- */
-define(['jquery'], function() {
+define(['jquery'], function($) {
+    /**
+     * Show a hidden element, also and hide it when clicking out of it
+     * @param  {string} trigger The button to show the element
+     * @param  {string} el      The element to toggle
+     */
     return hiderShower = function(trigger, el) {
-        var $cog = $(trigger),
-            $overlaySettings = $(el);
+        var $trigger = $(trigger),
+            $el = $(el);
         $(document).on('click', function(event) {
             // If the trigger element is clicked
-            if ($(event.target).closest(trigger).length) {
-                $overlaySettings.toggleClass('active');
-                $cog.toggleClass('animate-on-click');
+            if ($(event.target).closest($trigger).length) {
+                $el.toggleClass('active');
+                $trigger.toggleClass('active');
             // If anything else than the element is clicked
             } else if (!$(event.target).closest(el).length) {
-                $overlaySettings.removeClass('active');
+                $el.removeClass('active');
             }
         });
     }
+
+    // return function(trigger, el) {
+    //     var $trigger = $(trigger),
+    //         $overlaySettings = $(el);
+    //     $(document).on('click', function(event) {
+    //         // If the trigger element is clicked
+    //         if ($(event.target).closest(trigger).length) {
+    //             $overlaySettings.toggleClass('active');
+    //             $trigger.toggleClass('animate-on-click');
+    //         // If anything else than the element is clicked
+    //         } else if (!$(event.target).closest(el).length) {
+    //             $overlaySettings.removeClass('active');
+    //         }
+    //     });
+    // }
+
 });
