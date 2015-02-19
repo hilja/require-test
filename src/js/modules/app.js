@@ -9,10 +9,6 @@ define(function(require) {
         bp = require('./media-queries');
 
     require('./debounce');
-    // var thing = require('./hider-shower');
-    //var juuso = require('./hider-shower');
-    // console.log(hiderShower('hiderShower', 'main-nav'));
-    // var hello = require('./hider-shower');
     require('./hider-shower');
 
     hiderShower('.hider-shower-button', '.main-nav');

@@ -1,8 +1,11 @@
-/**
- * Sticky positionin
- */
 define(function() {
     return {
+        /**
+         * Add a class `sticky` to the header when it's about to leace the
+         * viewport
+         * @param  {string} el     The wanted element e.g `header`
+         * @param  {int}    offset The offset
+         */
         stickyPosition: function(el, offset) {
             // The element
             var el = document.querySelector(el),

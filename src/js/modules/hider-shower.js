@@ -18,20 +18,4 @@ define(['jquery'], function($) {
             }
         });
     }
-
-    // return function(trigger, el) {
-    //     var $trigger = $(trigger),
-    //         $overlaySettings = $(el);
-    //     $(document).on('click', function(event) {
-    //         // If the trigger element is clicked
-    //         if ($(event.target).closest(trigger).length) {
-    //             $overlaySettings.toggleClass('active');
-    //             $trigger.toggleClass('animate-on-click');
-    //         // If anything else than the element is clicked
-    //         } else if (!$(event.target).closest(el).length) {
-    //             $overlaySettings.removeClass('active');
-    //         }
-    //     });
-    // }
-
 });
