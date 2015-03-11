@@ -1,0 +1,10 @@
+{
+  "name": "require-build-test",
+  "devDependencies": {
+    "amd-optimize": "^0.4.3",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-rename": "^1.2.0",
+    "requirejs": "^2.1.16"
+  }
+}
