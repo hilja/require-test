@@ -1,3 +1,4 @@
+// https://github.com/jrburke/r.js/blob/master/build/example.build.js
 ({
     mainConfigFile: 'src/js/config.js',
     baseUrl: 'src/js',
